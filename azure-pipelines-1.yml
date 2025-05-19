@@ -13,11 +13,13 @@ steps:
   - task: BrowserStackConfig@0
     inputs:
       BrowserStackServiceEndPoint: 'Test_browserstack'
+  - task: BrowserStackTestReports@0 
+  
   - script: |
       npm install
       npm run test
     displayName: 'npm install & test'
-  - task: BrowserStackTestReports@0 
+  
   - task: BrowserStackResults@1
     inputs:
       browserstackProduct: 'automate'
